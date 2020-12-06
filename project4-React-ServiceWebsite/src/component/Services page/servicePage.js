@@ -28,7 +28,7 @@ function ServicPage() {
   const babies = [
     {
       img: sa3,
-      content: "have a nice outdoor graduation session with your family and dears,in this offer you will have outdoor tow hours session with our greatest omar khyami wiht his accessories ",
+      content: "have a nice outdoor graduation session with your family,in this offer you will have outdoor tow hours session with our greatest omar khyami wiht his accessories ",
       title:"FAMILY SESSION",
       cost: "50 JOD",
       data: {
@@ -47,7 +47,7 @@ function ServicPage() {
     {
       title:"2020 GRADUATION SESSION",
       img: sa5,
-      content: "Enjoy your graduation moment at 2020 and don't let COVD-19 stop you, iin this offer you will have outdoor, one hour session with the Astonishing Ali Sasdi. ",
+      content: "Enjoy your graduation moment at 2020 and don't let COVID-19 stop you, iin this offer you will have outdoor, one hour session with the Astonishing Ali Sasdi. ",
       // id=2
       cost: "45 JOD",
       data:{
@@ -103,7 +103,7 @@ function ServicPage() {
     {
       img: sa2,
       title:"LOVE MOMENT SESSION",
-      content: "You fell in love the way you fall asleep,slowly, and then all at once,have your own session and keep your moment  with omar khyami in outdoor one hour session ",
+      content: "You fell in love slowly, and then all at once,have your own session and keep your moment  with omar khyami in outdoor one hour session ",
       cost: "45 JOD",
       data: {
          location: 'outdoor',
@@ -172,7 +172,7 @@ function ServicPage() {
     {
       title:"CUTE BABIES SESSION",
       img: "https://www.avnidaphotography.com/wp-content/uploads/2015/05/20-4896-post/6-month-old-baby-Jacob-shows-off-the-cutest-pout-we-have-seen(pp_w768_h512).jpg",
-      content: "keep your cute baby memories and don't let them the memory die with our amazing photographer linda AL-Koury ,in this session you will have tow hour indoor session  .",
+      content: "keep your cute baby memories  with our amazing photographer linda AL-Koury ,in this session you will have tow hour indoor session.",
       cost: " 50 JOD",
       data: {
           location: 'indoor',

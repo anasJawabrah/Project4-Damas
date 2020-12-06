@@ -35,7 +35,12 @@ class MyNavbar extends React.Component {
                 </Nav>
                 :
                 <Nav>
-                <Nav.Link href="/login" onClick={()=>localStorage.setItem('isLogin',false)}> Logout</Nav.Link>
+                <Nav.Link href="/login" onClick={() => {
+                  localStorage.setItem('isLogin', false);
+                sessionStorage.clear();
+
+                }
+                }> Logout</Nav.Link>
                 <Nav.Link href="/AppOne">
                   <i className="fas fa-user"></i> Profile
                 </Nav.Link>
