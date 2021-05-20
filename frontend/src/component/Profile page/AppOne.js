@@ -1,25 +1,27 @@
 import './Weather.css';
 import "../../index.css"
+import React,{ useState,useContext } from 'react';
 import { WeatherData } from './WeatherData'
 import {StatusData} from "./StatusData"
 import CardGo from './CardGo';
-import React, { Component, Profiler } from 'react';
-const a = ['user' , ' offers','offers1' , 'date']
-class AppOne extends Component{
 
+const userContext = require('../../useContext/UserContext');
 
+ 
+
+const AppOne = () => {
   
-  state = {
-    user: JSON.parse(localStorage.getItem("userN")) ,
-    date: JSON.parse(sessionStorage.getItem("date")), 
-    offer: JSON.parse(sessionStorage.getItem("offers1")), 
-  }
+  const a = ['user', ' offers', 'offers1', 'date']
+  // const { setUserData } = useContext(UserContext);
 
-
-
-  render(){
+  // state = {
+  //   user: JSON.parse(localStorage.getItem("userN")) ,
+  //   date: JSON.parse(sessionStorage.getItem("date")), 
+  //   offer: JSON.parse(sessionStorage.getItem("offers1")), 
+  // }
     document.title ="DAMSA | Profile Page"; 
-    document.getElementsByTagName("META")[2].content="Damsa is a website for booking photography sessions anywhere and anytime, we have a very precise and up to date waether section you will love";
+  document.getElementsByTagName("META")[2].content = "Damsa is a website for booking photography sessions anywhere and anytime, we have a very precise and up to date waether section you will love";
+  
     return (
       <div className="profile_page">
         <div className="profile_page_left_part">
@@ -49,8 +51,9 @@ class AppOne extends Component{
         </div>
       </div>
     );   
-  };
+  
 };
+
 class MyWeather extends React.Component {
   constructor(props) {
     super(props);

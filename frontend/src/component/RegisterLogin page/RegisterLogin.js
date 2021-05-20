@@ -1,9 +1,18 @@
-import React , { useState } from "react";
+import React , { useState ,useContext} from "react";
 import { useEffect } from "react";
 
 //Form Validation Library
 import { useForm} from "react-hook-form";
 import isEmail from "validator/lib/isEmail";
+
+//Import the history route 
+import { useHistory } from "react-router-dom";
+
+// import the backend axios
+import UserContext from "../../useContext/UserContext";
+import Axios from "axios";
+import ErrorNotice from "../../errorNotes/ErrorNotice"
+
 
 //css
 import styles from './RegisterLogin.module.css'
@@ -27,9 +36,6 @@ const stylesNode = {
 };
 // var dataListObj = {};
 
-
-
-
 export default function RegisterForm() {
 
   document.title ="DAMSA | Register Page"; 
@@ -39,35 +45,38 @@ export default function RegisterForm() {
   const { register, handleSubmit, errors, formState } = useForm({
     mode: "onBlur",
   });
+
+  const { setUserData } = useContext(UserContext);
+    const [error, setError] = useState();
+
+    const history = useHistory();
+
+
   
-  // hooks 
-  // const [userList, setUserList] = useState([]);
-  // const [userListObj, setUserListObj] = useState({});
 
-  function onSubmit(data) {
-    if ((localStorage.getItem(data.username))) {
+  const onSubmit = async (data) =>{
+    // e.preventDefault();
+    try {
+      const temp = {};
+      const newUser = Object.assign(temp, data);
 
-      alert('You already have an account ')
-     }
-    
-    else {
-      
-      if ((JSON.stringify(data.password) === JSON.stringify(data.confirm))) {
-              
-        window.localStorage.setItem("userN", JSON.stringify(data))
-        window.localStorage.setItem( data.username, JSON.stringify(data))
-        console.log(data);
-        // alert('the account was created')
-        { window.location.href = '/Login' }
-
-
-         
-        }
-        else {
-        alert('the password unmatched ')
-        }
-     }
-    
+      await Axios.post("http://localhost:5000/users/register", newUser);
+      const email = newUser.email;
+      const password = newUser.password;
+      const loginRes = await Axios.post("http://localhost:5000/users/login", {
+        email,
+        password
+      });
+      setUserData({
+        token: loginRes.data.token,
+        user: loginRes.data.user,
+      });
+      localStorage.setItem("auth-token", loginRes.data.token);
+      history.push("/");
+    }
+    catch (err) {
+      err.response.data.msg && setError(err.response.data.msg);
+    }
 }
 
   
@@ -77,6 +86,9 @@ export default function RegisterForm() {
         <div className={styles.sps}>
           <div>          
             <h1>Sign Up </h1>
+             {error && (
+        <ErrorNotice message={error} clearError={() => setError(undefined)} />
+      )}
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>
@@ -131,7 +143,7 @@ export default function RegisterForm() {
             <div>
             <RiLockPasswordLine/>
             <input
-                name="confirm"
+                name="passwordCheck"
                 type="password"
             ref={register({
               required: true,

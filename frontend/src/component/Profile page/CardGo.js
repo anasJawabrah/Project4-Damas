@@ -8,7 +8,7 @@ class CardGo extends React.Component {
     this.state = {
       
     };
-  }
+  } 
   // const setData() {
   //   this.userData = JSON.parse(sessionStorage.getItem('user'))
   //   let data sessionStorage.getItem('user')) 

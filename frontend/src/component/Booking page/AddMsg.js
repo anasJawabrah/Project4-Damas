@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
+
 import {Modal} from 'react-bootstrap';
+
 import './Booking.css'
 
 export class AddMsg extends Component{
@@ -15,9 +17,9 @@ export class AddMsg extends Component{
             centered
           >
             <Modal.Body>
-                <div className="Msg">
+              <div className="Msg">
                     <h2>Thank You For Your Submission</h2>
-          <h4>You will get an email with further instructions.</h4>
+                    <h4>You will get an email with further instructions.</h4>
               </div>
             </Modal.Body>
             <Modal.Footer>

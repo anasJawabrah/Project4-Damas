@@ -2,7 +2,7 @@ import React from 'react'
 import { Clock } from './Clock'
 import { DegreesToDirection, Month, Weekday, Day } from '../../helpers/utils'
 
-import clockIcon from '../images/clock.png'
+import clockIcon from '../images/clock.png' 
 import dropIcon from '../images/drop.png'
 import windIcon from '../images/wind.png'
 

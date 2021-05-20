@@ -1,8 +1,13 @@
 import React, { Component,useState } from "react";
+
 import DatePicker from "react-datepicker";
+
 import './Booking.css'
+
 import "react-datepicker/dist/react-datepicker.css";
+
 import {AddMsg} from './AddMsg';
+
 import {Button, ButtonToolbar} from 'react-bootstrap';
 
 class Booking extends Component {
@@ -112,7 +117,7 @@ render(){
                     </div>
                 </div>
                 
-                <ButtonToolbar>
+            <ButtonToolbar>
                 <Button className="Button-Submit" onClick={()=> (this.state.selectedDate && this.setState({isSubmit: true }))}> Submit </Button>
                 <AddMsg show={this.state.isSubmit}
                 onHide = {Close} />
